@@ -8,35 +8,68 @@
 
 :root {
     --item-height: 100px;
+    --hero-title-height: 52px;
 }
 
 body {
     padding: 0px;
     margin: 0px;
+    background: linear-gradient(#4c0082, #f703d2, #4c0082);
+    height: 100vh;
 }
 
 
-.flex1{
+.flex1 {
     flex: 1;
 }
 
 main {
     background: linear-gradient(#4c0082, #f703d2, #4c0082);
     height: 100vh;
+    padding-top: 20px; ;
+
+
+    background-image: url('../bg-img/pngwing.com\ \(3\).png');
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+.game {
     overflow: hidden;
     display: flex;
     justify-content: space-between;
     gap: 80px;
+    height: calc(100% - var(--hero-title-height));
 }
 
-.left-side{
+.hero-title {
+    font-family: "Ruslan Display", sans-serif;
+    font-size: 48px;
+    letter-spacing: 1.2rem;
+    height: var(--hero-title-height);
+    margin: 0px;
+    color: #fff;
+    text-align: center;
+    text-shadow:
+        0 0 5px rgb(255, 0, 230),
+        0 0 10px rgb(255, 0, 230),
+        0 0 20px rgb(255, 0, 230),
+        0 0 40px rgb(255, 0, 230),
+        0 0 80px rgb(255, 0, 230);
+    animation: flicker 2s infinite;
+
+}
+
+
+
+.left-side {
     position: relative;
 }
 
 .bgc-img-left {
     position: absolute;
     object-fit: cover;
-    width: 170%;
+    height: 100%;
     left: -150px;
     bottom: -20px;
     animation: floatAround 4s ease-in-out infinite;
@@ -207,22 +240,23 @@ main {
 
 
 .right-side {
-    
+
     position: relative;
-    overflow: hidden;
-    padding: 20px;
+
+    padding: 20px 20px 0px 0px;
 }
 
 
 .win-condition-info {
-    max-width: 354px;
+    max-width: 450px;
+    margin: 25px auto;
 }
 
 
 .combos-div {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    background: rgba(255, 255, 255, 0.05);
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(255, 255, 255, 0.4);
     padding: 8px 12px;
     border-radius: 8px;
     color: white;
@@ -238,8 +272,8 @@ main {
     animation: popWin 0.4s ease;
 
     img {
-        width: 32px;
-        height: 32px;
+        width: 2vw;
+
     }
 
     span {
@@ -270,6 +304,9 @@ main {
 .right-side-img {
     position: absolute;
     object-fit: contain;
+    bottom: -100px;
+    right: -170px;
+    height: 85%;
     animation: floatAround2 4s ease-in-out infinite;
 }
 
@@ -306,11 +343,30 @@ main {
  */
 
 
-.hero-title{
-    text-align: center;
-    font-size: 45px;
-    color: white;
 
+
+.center {
+    overflow: visible;
+}
+
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.4;
+    }
 }
 
 
@@ -323,6 +379,7 @@ main {
     position: relative;
     z-index: 20;
     padding: 10px;
+    margin-top: 10vh;
     border-radius: 20px;
     background: linear-gradient(135deg, #00f0ff, #ff00f0, #8000ff);
     background-size: 400% 400%;
@@ -483,3 +540,138 @@ main {
         transform: rotate(7deg);
     }
 }*/
+
+
+
+
+
+@media screen and (max-width: 1364px) {
+    // :root {
+    //     --item-height: 90px;
+    //     /* Було 100px → стало на 10% менше */
+    // }
+
+    // #container {
+    //     transform: scale(0.9);
+    //     transform-origin: top center;
+    // }
+
+    // .icon {
+    //     max-width: 72px;
+    //     /* Було 80px → 10% менше */
+    // }
+
+    // .outer-col {
+    //     max-width: 90px;
+    //     /* Було 100px → 10% менше */
+    // }
+
+    // .col {
+    //     padding: 0 9px;
+    //     /* Було 10px → 10% менше */
+    // }
+
+    // .col img {
+    //     margin: 9px 0;
+    //     /* Було 10px → 10% менше */
+    // }
+
+
+    // .combos-div {
+    //     padding: 4px 6px;
+    // }
+
+    // .win-entry {
+    //     gap: 10px;
+
+    //     padding: 4px 6px;
+
+    //     img {
+    //         width: 2vw;
+    //     }
+
+    //     span {
+    //         flex: 1;
+    //         font-size: 12px;
+    //     }
+
+    //     strong {
+    //         font-size: 14px;
+    //         color: #00ff88;
+    //     }
+    // }
+}
+
+
+
+
+@media screen and (max-width: 1234px) {
+    .win-entry {
+        img {
+            width: 1.5vw;
+        }
+
+        span {
+            flex: 1;
+            font-size: 8px;
+        }
+
+        strong {
+            font-size: 10px;
+            color: #00ff88;
+        }
+    }
+}
+
+
+
+
+@media screen and (orientation: portrait) {
+    .hero-title {
+        font-size: 45px;
+    }
+
+    .bgc-img-left {
+
+        height: 60%;
+        left: -150px;
+        bottom: -20px;
+
+    }
+
+    .right-side-img {
+
+        bottom: -100px;
+        right: -170px;
+        height: 50%;
+
+    }
+
+}
+
+
+
+@media screen and (min-width: 535px) and (max-width: 1234px) {
+    .bgc-img-left {
+
+        height: 55%;
+
+    }
+
+    .right-side-img {
+
+        height: 45%;
+
+    }
+}
+
+@media screen and (max-width: 534px) {
+    .bgc-img-left {
+        display: none;
+    }
+    .right-side-img {
+
+        width: 100vw;
+
+    }
+}
